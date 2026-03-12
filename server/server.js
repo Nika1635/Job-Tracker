@@ -1,11 +1,14 @@
 import express from "express"
+import cors from "cors"
+import { appRouter } from "./controller/mainController.js"
 
 const PORT = 8000
 
-const server = express()
+const app = express()
 
-server.get('/',  (req, res) => {
-    res.json("123")
-})
+app.use(cors())
+app.use(express.json())
 
-server.listen(PORT, () => `server running on port: ${PORT}`)
+app.use('/', appRouter)
+
+app.listen(PORT, () => `server running on port: ${PORT}`)
