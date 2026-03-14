@@ -1,21 +1,13 @@
-# Node.js dependencies
 node_modules/
 
-# Environment variables
 .env
 
-# Logs
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# React build folder
 client/build/
 
-# VS Code settings (optional)
 .vscode/
-
-# MacOS files (optional)
-.DS_Store
