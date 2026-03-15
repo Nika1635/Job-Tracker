@@ -25,7 +25,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route index element= {<Home/>}></Route>
-        <Route path='*' element= {<Jobs/>}></Route>
+        <Route path='/jobs' element= {<Jobs/>}></Route>
         <Route path='*' element= {<NotFound/>}></Route>
       </Routes>
     </BrowserRouter>
