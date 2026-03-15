@@ -1,4 +1,4 @@
-export default function IndexPage(){
+export default function Home(){
     return(
         <h1>main</h1>
     )

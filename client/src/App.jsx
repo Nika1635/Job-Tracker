@@ -1,6 +1,6 @@
 import './App.css'
 import Navbar from './components/navbar/navbar.jsx'
-import IndexPage from './components/indexPage/indexPage.jsx'
+import Home from './pages/Home/home.jsx'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -21,7 +21,7 @@ function App() {
     <BrowserRouter>
       <Navbar/>
       <Routes>
-        <Route index element= {<IndexPage/>}></Route>
+        <Route index element= {<Home/>}></Route>
       </Routes>
     </BrowserRouter>
   )
