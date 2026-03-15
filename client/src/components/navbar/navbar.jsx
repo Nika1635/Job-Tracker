@@ -7,7 +7,7 @@ export default function Navbar(){
             <h1>Job Tracker</h1>
             <ul>
                 <Link to='/'>Home</Link>
-                <Link></Link>
+                <Link to='/jobs'>Jobs</Link>
                 <Link></Link>
             </ul>
         </nav>
