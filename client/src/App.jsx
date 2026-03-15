@@ -18,14 +18,12 @@ function App() {
 
   }, [])
   return (
-    <>
-      <BrowserRouter>
-        <Navbar/>
-        <Routes>
-          <Route path="/" element= {<IndexPage/>}></Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Navbar/>
+      <Routes>
+        <Route index element= {<IndexPage/>}></Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
