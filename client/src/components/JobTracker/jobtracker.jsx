@@ -1,7 +1,17 @@
 import styles from './jobtracker.module.css'
 import '../componentstyles.css'
+import { useEffect, useState } from 'react'
 
 export default function Jobtracker(){
+
+    const [jobData, setJobData] = useState([])
+
+    useEffect(() => {
+        fetch("https://job-tracker-t0qo.onrender.com/")
+        .then(jsonResponse => jsonResponse.json())
+        .then(data => setJobData(data))
+    }, [])
+
     return(
         <section className='component-hero'>
             <div className='component-header'>
@@ -10,16 +20,23 @@ export default function Jobtracker(){
 
             <div className='component-info'>
                 <table>
-                    <tr>
-                        <th>Company name</th>
-                        <th>Position</th>
-                        <th>Status</th>
-                    </tr>
-                    <tr>
-                        <td>Company</td>
-                        <td>Junior Dev</td>
-                        <td>Applied</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Company name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {jobData.map((data) => (
+                            <tr>
+                                <td>{data.company}</td>
+                                <td>{data.position}</td>
+                                <td>{data.status}</td>
+                            </tr>
+                            ))
+                        }
+                    </tbody>
                 </table>
             </div>
         </section>
