@@ -1,0 +1,36 @@
+.modalHero{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-inputfield{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.modal-inputfield label {
+  width: 200px;
+}
+
+.modal-inputfield input {
+  flex: 1;
+}
+.modal-submit{
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+
+.modal-form{
+  display: flex;
+  flex-direction: column;
+}

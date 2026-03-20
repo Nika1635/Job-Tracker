@@ -10,6 +10,10 @@
 .component-header{
     padding: 20px;
     color: #2c4568;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .component-info{

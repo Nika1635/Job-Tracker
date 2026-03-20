@@ -1,8 +1,9 @@
 import styles from './jobtracker.module.css'
-import '../componentstyles.css'
+import '../../styles/componentstyles.css'
+import '../../styles/buttonstyle.css'
 import { useEffect, useState } from 'react'
 
-export default function Jobtracker(){
+export default function Jobtracker({modalStatus, showModalActivate}){
 
     const [jobData, setJobData] = useState([])
 
@@ -16,6 +17,7 @@ export default function Jobtracker(){
         <section className='component-hero'>
             <div className='component-header'>
                 <h1>Job Tracker</h1>
+                <button onClick={() =>{showModalActivate(!modalStatus)}}>Add New</button>
             </div>
 
             <div className='component-info'>
