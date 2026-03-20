@@ -17,8 +17,13 @@ export default function Modal({modalStatus, showModalActivate}){
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         console.log(formData)
+        fetch("https://job-tracker-t0qo.onrender.com/", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(formData)
+        })
     }
 
     return (
