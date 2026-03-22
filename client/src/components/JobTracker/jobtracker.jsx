@@ -2,21 +2,17 @@ import './jobtracker.module.css'
 import '../../styles/componentstyles.css'
 import '../../styles/buttonstyle.css'
 import { useEffect} from 'react'
-import { getAllDataService } from '../services'
+import { jobDeleteRequest, jobGetRequest } from '../services'
 
 export default function Jobtracker({modalStatus, showModalActivate, trackerJobData, setTrackerJobData}){
 
     useEffect(() => {
-        getAllDataService(setTrackerJobData)
+        jobGetRequest(setTrackerJobData)
     }, [])
 
     const deleteButton = async (e) => {
         const id = e.target.value
-        const response = await fetch(`https://job-tracker-t0qo.onrender.com/${id}`, {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" }
-        })
-        setTrackerJobData(prev => prev.filter(job => job.id !== +id))
+        jobDeleteRequest(id, setTrackerJobData)
     }
 
     return(
