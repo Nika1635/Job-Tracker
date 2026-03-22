@@ -4,15 +4,15 @@ import '../../styles/buttonstyle.css'
 import { useEffect} from 'react'
 import { jobDeleteRequest, jobGetRequest } from '../services'
 
-export default function Jobtracker({modalStatus, showModalActivate, trackerJobData, setTrackerJobData}){
+export default function Jobtracker({modalStatus, showModalActivate, trackerJobData, setTrackerJobData, setLoaderStatus}){
 
     useEffect(() => {
-        jobGetRequest(setTrackerJobData)
+        jobGetRequest(setTrackerJobData, setLoaderStatus)
     }, [])
 
     const deleteButton = async (e) => {
         const id = e.target.value
-        jobDeleteRequest(id, setTrackerJobData)
+        jobDeleteRequest(id, setTrackerJobData, setLoaderStatus)
     }
 
     return(

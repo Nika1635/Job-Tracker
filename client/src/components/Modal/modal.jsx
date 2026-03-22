@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import "./modal.css"
 import { jobPostRequest } from '../services.jsx'
 
-export default function Modal({modalStatus, showModalActivate, setModalJobData}){
+export default function Modal({modalStatus, showModalActivate, setModalJobData, setLoaderStatus}){
     const [formData, setFormData] = useState({
         company: "",
         position: "",
@@ -18,7 +18,7 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData})
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        jobPostRequest(formData, setModalJobData)
+        jobPostRequest(formData, setModalJobData, setLoaderStatus)
     }
 
     return (
