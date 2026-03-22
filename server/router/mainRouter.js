@@ -13,8 +13,9 @@ appRouter.post("/", async (req, res) => {
     res.json(sendData)
 })
 
-appRouter.delete("/", async (req, res) => {
-    const removeData = await sql `DELETE FROM jobs WHERE id = ${req.body.id} RETURNING *;`
+appRouter.delete("/:id", async (req, res) => {
+    const { id } = req.params
+    const removeData = await sql `DELETE FROM jobs WHERE id = ${id};`
     res.json(removeData)
 })
     
