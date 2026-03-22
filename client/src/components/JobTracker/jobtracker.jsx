@@ -1,22 +1,18 @@
-import styles from './jobtracker.module.css'
+import './jobtracker.module.css'
 import '../../styles/componentstyles.css'
 import '../../styles/buttonstyle.css'
-import { useEffect, useState } from 'react'
+import { useEffect} from 'react'
 import { getAllDataService } from '../services'
 
-export default function Jobtracker({modalStatus, showModalActivate}){
-
-    const [jobData, setJobData] = useState([])
-
-
+export default function Jobtracker({modalStatus, showModalActivate, trackerJobData, setTrackerJobData}){
 
     useEffect(() => {
-        getAllDataService(setJobData)
+        getAllDataService(setTrackerJobData)
     }, [])
 
     const deleteButton = (e) => {
         console.log(e.target.value)
-        getAllDataService(setJobData)
+        getAllDataService(setTrackerJobData)
     }
 
     return(
@@ -36,7 +32,7 @@ export default function Jobtracker({modalStatus, showModalActivate}){
                         </tr>
                     </thead>
                     <tbody>
-                        {jobData.map((data) => (
+                        {trackerJobData.map((data) => (
                             <tr key={data.id}>
                                 <td>{data.company}</td>
                                 <td>{data.position}</td>

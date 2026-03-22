@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from 'react'
 import "./modal.css"
+import { getAllDataService } from "../services"
 
-export default function Modal({modalStatus, showModalActivate}){
+export default function Modal({modalStatus, showModalActivate, setModalJobData}){
     const [formData, setFormData] = useState({
         company: "",
         position: "",
@@ -15,14 +16,18 @@ export default function Modal({modalStatus, showModalActivate}){
         })
     }
 
-    const handleSubmit = (e) => {
-        // e.preventDefault()
+    const handleSubmit = async (e) => {
+        e.preventDefault()
         console.log(formData)
-        fetch("https://job-tracker-t0qo.onrender.com/", {
+        const response = await fetch("https://job-tracker-t0qo.onrender.com/", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(formData)
         })
+
+        const newJob = await response.json()
+        await setModalJobData(prev => [...prev, newJob])
+        
     }
 
     return (
