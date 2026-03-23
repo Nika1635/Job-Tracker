@@ -6,7 +6,7 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
     const [formData, setFormData] = useState({
         company: "",
         position: "",
-        status: "Interview"
+        status: ""
     })
 
     const handleChanges = (e) => {
@@ -18,6 +18,7 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        console.log(formData)
         jobPostRequest(formData, setModalJobData, setLoaderStatus)
     }
 
@@ -35,6 +36,17 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
                     <div className="modal-inputfield">
                         <label htmlFor="position">Position</label>
                         <input type="text" name="position" onChange={handleChanges} />
+                    </div>
+                    <div className="modal-inputfield">
+                        <label htmlFor="status">Status</label>
+                        <select value={formData.status} name="status" onChange={handleChanges}>
+                            <option value="" disabled>Status</option>
+                            <option value="Applied">Applied</option>
+                            <option value="Interview">Interview</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Offer">Offer</option>
+                            <option value="Accepted">Accepted</option>
+                        </select>
                     </div>
                     <button type="submit" className="modal-submit">submit</button>
                 </form>
