@@ -8,6 +8,12 @@ appRouter.get('/', async (req, res) => {
     res.json(jobs)
 })
 
+appRouter.get("/:id", async (req, res) => {
+    const { id } = req.params
+    const searchById = await sql `SELECT * FROM jobs WHERE id = ${id};`
+    res.json(searchById)
+})
+
 appRouter.post("/", async (req, res) => {
     const [ sendData ] = await sql `INSERT INTO jobs(company, position, status) VALUES (${req.body.company}, ${req.body.position}, ${req.body.status}) RETURNING *;`
     res.json(sendData)
