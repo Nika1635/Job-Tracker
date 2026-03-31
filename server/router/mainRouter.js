@@ -24,4 +24,10 @@ appRouter.delete("/:id", async (req, res) => {
     const removeData = await sql `DELETE FROM jobs WHERE id = ${id};`
     res.json(removeData)
 })
+
+appRouter.patch("/:id", async (req, res) => {
+    const { id } = req.params
+    const patchData = await sql `UPDATE jobs SET company = 'matemotors', position = 'magari Pozicia', status = 'Accepted' WHERE id = 66;`
+    res.json(patchData)
+})
     
