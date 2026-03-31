@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import "./modal.css"
-import { getJobWithIdRequest, jobPostRequest, updateData } from '../services.jsx'
+import { getJobWithIdRequest, jobGetRequest, jobPostRequest, updateData } from '../services.jsx'
 
 export default function Modal({modalStatus, showModalActivate, setModalJobData, setLoaderStatus, mode, jobId}){
     const [formData, setFormData] = useState({
@@ -13,8 +13,8 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
         if(mode === "edit"){
             getJobWithIdRequest(setFormData, setLoaderStatus, jobId)
         }
-    }, [])
-
+    }, [mode, jobId])
+    
     const handleChanges = (e) => {
         setFormData({
             ...formData,
@@ -27,8 +27,8 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
         if(mode === "new"){
             jobPostRequest(formData, setModalJobData, setLoaderStatus)
         } else if(mode === "edit"){
-            updateData(formData, formData.id)
-            console.log(formData.id)
+            updateData(formData, formData.id, setLoaderStatus, setModalJobData)
+            jobGetRequest(setModalJobData, setLoaderStatus)
         }
     }
 
