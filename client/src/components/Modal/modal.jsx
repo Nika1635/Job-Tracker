@@ -27,8 +27,8 @@ export default function Modal({modalStatus, showModalActivate, setModalJobData, 
         if(mode === "new"){
             jobPostRequest(formData, setModalJobData, setLoaderStatus)
         } else if(mode === "edit"){
-            updateData(formData, formData.id, setLoaderStatus, setModalJobData)
-            jobGetRequest(setModalJobData, setLoaderStatus)
+            await updateData(formData, formData.id, setLoaderStatus, setModalJobData)
+            location.reload()
         }
     }
 
