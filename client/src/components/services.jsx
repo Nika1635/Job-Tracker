@@ -1,6 +1,6 @@
 export function jobGetRequest(state, setLoaderStatus){
     setLoaderStatus(true)
-    fetch("https://job-tracker-t0qo.onrender.com/")
+    fetch("https://job-tracker-t0qo.onrender.com/jobs")
     .then(jsonResponse => jsonResponse.json())
     .then(data => state(data))
     setLoaderStatus(false)
@@ -8,7 +8,7 @@ export function jobGetRequest(state, setLoaderStatus){
 
 export async function jobDeleteRequest(id, changeData, setLoaderStatus){
     setLoaderStatus(true)
-    await fetch(`https://job-tracker-t0qo.onrender.com/${id}`, {
+    await fetch(`https://job-tracker-t0qo.onrender.com/jobs/${id}`, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" }
     })
@@ -18,7 +18,7 @@ export async function jobDeleteRequest(id, changeData, setLoaderStatus){
 
 export async function jobPostRequest(data, setData, setLoaderStatus){
     setLoaderStatus(true)
-    const response = await fetch("https://job-tracker-t0qo.onrender.com/", {
+    const response = await fetch("https://job-tracker-t0qo.onrender.com/jobs", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(data)
@@ -30,7 +30,7 @@ export async function jobPostRequest(data, setData, setLoaderStatus){
 
 export async function getJobWithIdRequest(setData, setLoaderStatus, id){
     setLoaderStatus(true)
-    const response = await fetch(`https://job-tracker-t0qo.onrender.com/${JSON.parse(id)}`)
+    const response = await fetch(`https://job-tracker-t0qo.onrender.com/jobs/${JSON.parse(id)}`)
                             .then(jsonResponse => jsonResponse.json())
                             .then(async (data) => setData({
                                 company: data[0].company,
@@ -43,7 +43,7 @@ export async function getJobWithIdRequest(setData, setLoaderStatus, id){
 
 export async function updateData(data, id, setLoaderStatus, setData) {
     setLoaderStatus(true)
-    const response = await fetch(`https://job-tracker-t0qo.onrender.com/${id}`, {
+    const response = await fetch(`https://job-tracker-t0qo.onrender.com/jobs/${id}`, {
         method: "PATCH",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(data)
