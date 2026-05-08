@@ -23,16 +23,30 @@
 }
 
 table, th, td {
-  border: 1px solid green;
-  text-align: left;
+    border: 2px solid rgb(80, 80, 80);
+    text-align: left;
+    border-radius: 5px;
+}
+
+th, td{
+    padding: 10px;
 }
 
 table{
     width: 100%;
+    border-radius: 10px;
 }
 
 td > button {
     display: flex;
     align-self: center;
     justify-self: center;
+    margin: 4px;
+}
+
+tbody > tr > td:last-child{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }

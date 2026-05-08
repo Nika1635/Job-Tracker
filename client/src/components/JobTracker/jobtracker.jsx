@@ -1,4 +1,3 @@
-import './jobtracker.module.css'
 import '../../styles/componentstyles.css'
 import '../../styles/buttonstyle.css'
 import { useEffect} from 'react'
@@ -31,6 +30,7 @@ export default function Jobtracker({modalStatus, showModalActivate, trackerJobDa
                             <th>Company name</th>
                             <th>Position</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
