@@ -32,11 +32,12 @@ export async function getJobWithIdRequest(setData, setLoaderStatus, id){
     setLoaderStatus(true)
     const response = await fetch(`https://job-tracker-t0qo.onrender.com/jobs/${JSON.parse(id)}`)
                             .then(jsonResponse => jsonResponse.json())
-                            .then(async (data) => setData({
-                                company: data[0].company,
-                                position: data[0].position,
-                                status: data[0].status,
-                                id: data[0].id
+                            .then(async (data) => 
+                                setData({
+                                company: data.company,
+                                position: data.position,
+                                status: data.status,
+                                id: data.id
                             }))
     setLoaderStatus(false)
 }
